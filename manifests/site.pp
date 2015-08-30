@@ -23,4 +23,5 @@ include vim
 include mysql
 include tomcat
 include openmrs
+include littler
 include r
