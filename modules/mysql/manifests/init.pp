@@ -18,8 +18,6 @@ class mysql {
     unless => "mysqladmin -uroot -p$password status",
     path => "/bin:/usr/bin",
     command => "mysqladmin -uroot password $password",
-    command => "mysqladmin -uroot -p$password create oscar_mcmaster",
-    command => "mysql -uroot -p$password oscar_12_1 < /home/vagrant/OscarON12_1.sql",
   }
   exec { "Create OSCAR Database":
     subscribe => [ Package["mysql-server"], Package["mysql-client"], Package["libmysqlclient-dev"] ],
@@ -33,7 +31,7 @@ class mysql {
     refreshonly => true,
     unless => "mysqladmin -uroot -p$password status",
     path => "/bin:/usr/bin",
-    command => "mysql -uroot -p$password oscar_12_1 < /home/vagrant/OscarON12_1.sql",
+    command => "mysql -uroot -p$password oscar_mcmaster < /home/vagrant/OscarON12_1.sql",
   }
 
 }

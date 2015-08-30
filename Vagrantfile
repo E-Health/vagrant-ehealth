@@ -10,7 +10,8 @@ $script = <<SCRIPT
 
   echo I am installing OSCAR for you...
   export DEBIAN_FRONTEND=noninteractive
-  URL='http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
+  #URL='http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
+URL='http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb'; FILE=`oscar.deb`; wget "$URL" -qO $FILE && dpkg -i $FILE
 
   echo I am installing R Studio server for you...
   URL='https://download2.rstudio.org/rstudio-server-0.99.473-i386.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
@@ -25,11 +26,11 @@ SCRIPT
 $r_latest = <<SCRIPT2
 
   echo I am getting latest R for you...
-  echo "deb http://cran.utstat.utoronto.ca/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list > /dev/null
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-  sudo add-apt-repository ppa:marutter/rdev
-  sudo apt-get -y update
-  sudo apt-get -y upgrade
+  #echo "deb http://cran.utstat.utoronto.ca/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list > /dev/null
+  #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+  #sudo add-apt-repository ppa:marutter/rdev
+  #sudo apt-get -y update
+  #sudo apt-get -y upgrade
   sudo apt-get -y install r-base r-base-dev
 
 SCRIPT2
