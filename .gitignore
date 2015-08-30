@@ -1,0 +1,4 @@
+.vagrant
+.vagrant.v1.*
+*~
+/code
