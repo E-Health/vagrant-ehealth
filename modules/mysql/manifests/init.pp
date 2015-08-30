@@ -1,5 +1,5 @@
 class mysql {
-  $password = "ehealth"
+  $password = ""
   package { "mysql-client": ensure => installed }
   package { "mysql-server": ensure => installed }
   package { "libmysqlclient-dev": ensure => installed }
