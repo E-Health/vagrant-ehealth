@@ -18,7 +18,6 @@ class { "jdk":
 
 include apt_get::update
 include jdk
-include git
 include vim
 include mysql
 include tomcat
