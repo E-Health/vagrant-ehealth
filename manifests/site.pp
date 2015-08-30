@@ -5,6 +5,14 @@ stage { 'first':
 }
 
 stage { 'second':
+    before => Stage['third']
+}
+
+stage { 'third':
+    before => Stage['fourth']
+}
+
+stage { 'fourth':
     before => Stage['main']
 }
 
@@ -14,6 +22,14 @@ class { "apt_get::update":
 
 class { "jdk":
     stage => second,
+}
+
+class { "tomcat":
+    stage => third,
+}
+
+class { "mysql":
+    stage => fourth,
 }
 
 

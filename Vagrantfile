@@ -13,6 +13,8 @@ $script = <<SCRIPT
   #/home/vagrant/install.r JGR Deducer DeducerExtras nortest lawstat
   #/home/vagrant/install.r nortest lawstat
 
+  #restarting tomcat
+  /etc/init.d/tomcat6 restart
 
 SCRIPT
 
@@ -28,8 +30,6 @@ $r_latest = <<SCRIPT2
   #change this
   #sudo apt-get -y install r-base r-base-dev
 
-  #restarting tomcat
-  /etc/init.d/tomcat6 restart
 
 SCRIPT2
 

@@ -1,13 +1,11 @@
 
 class oscar {
-  $target_osc = '/var/lib/tomcat6/webapps/oscar_mcmaster.war'
+  $target_osc = '/var/lib/tomcat6/webapps/Oscar10_12.war'
   $target_doc = '/var/lib/tomcat6/webapps/OscarDocument.war'
   $target_conf = '/usr/share/tomcat6/Oscar10_12.properties'
   $uri = "http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20McMaster%20Manual%20Install/10.12/oscar_mcmaster_10.12_1.2.final.tar.gz"
   $db_name=oscar_10_12
   $db_password=mysql
-
-
 
   exec { "wget_oscar":
     path => "/bin:/usr/bin",
@@ -25,21 +23,21 @@ class oscar {
     subscribe => Exec["unzip_oscar"],
     refreshonly => true,
     path => "/bin:/usr/bin",
-    command => "mv /home/vagrant/oscar_mcmaster.war $target_osc",
+    command => "mv /home/vagrant/oscar_mcmaster_10.12_/Oscar10_12.war $target_osc",
   }
 
   exec { "move_doc":
     subscribe => Exec["unzip_oscar"],
     refreshonly => true,
     path => "/bin:/usr/bin",
-    command => "mv /home/vagrant/OscarDocument.war $target_doc",
+    command => "mv /home/vagrant/oscar_mcmaster_10.12_/OscarDocument.war $target_doc",
   }
 
   exec { "move_conf":
     subscribe => Exec["unzip_oscar"],
     refreshonly => true,
     path => "/bin:/usr/bin",
-    command => "mv /home/vagrant/Oscar10_12.properties $target_conf",
+    command => "mv /home/vagrant/oscar_mcmaster_10.12_/Oscar10_12.properties $target_conf",
   }
 
 
@@ -54,7 +52,7 @@ class oscar {
     subscribe => Exec["mysql_create_db"],
     refreshonly => true,
     path => "/bin:/usr/bin",
-    command => "mysql -uroot -p$db_password $db_name < /home/vagrant/OscarON10_12.sql",
+    command => "mysql -uroot -p$db_password $db_name < /home/vagrant/oscar_mcmaster_10.12_/OscarON10_12.sql",
   }
 
 }
