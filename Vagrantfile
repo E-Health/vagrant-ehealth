@@ -9,6 +9,7 @@ $script = <<SCRIPT
   #wget -P -q /home/vagrant/code/ http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb
 
   echo I am installing OSCAR for you...
+  export DEBIAN_FRONTEND=noninteractive
   URL='http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
 
   echo I am installing R Studio server for you...
