@@ -16,6 +16,8 @@ class { "jdk":
     stage => second,
 }
 
+class { "r":}
+
 include apt_get::update
 include jdk
 include git
@@ -23,4 +25,4 @@ include vim
 include mysql
 include tomcat
 include openmrs
-include r
+include nuchange-r
