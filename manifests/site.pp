@@ -23,6 +23,4 @@ include vim
 include mysql
 include tomcat
 include openmrs
-include nuchange-r
-
-class { "r":}
+include r
