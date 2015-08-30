@@ -7,11 +7,11 @@ $script = <<SCRIPT
 
 
   echo I am installing R Studio server for you...
-  #URL='https://download2.rstudio.org/rstudio-server-0.99.473-i386.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
+  URL='https://download2.rstudio.org/rstudio-server-0.99.473-i386.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
 
   echo I am installing R packages for you...
   #/home/vagrant/install.r JGR Deducer DeducerExtras nortest lawstat
-  #/home/vagrant/install.r nortest lawstat
+  /home/vagrant/install.r nortest lawstat
 
   #restarting tomcat
   /etc/init.d/tomcat6 restart
@@ -20,7 +20,7 @@ SCRIPT
 
 $r_latest = <<SCRIPT2
 
-  echo I am getting latest R for you...
+  #echo I am getting latest R for you...
   #echo "deb http://cran.utstat.utoronto.ca/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list > /dev/null
   #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   #sudo add-apt-repository ppa:marutter/rdev
@@ -55,7 +55,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8000, auto_correct: true
   config.vm.network "forwarded_port", guest: 8080, host: 8001, auto_correct: true
   config.vm.network "forwarded_port", guest: 8787, host: 8002, auto_correct: true
-  config.vm.network "forwarded_port", guest: 8443, host: 8003, auto_correct: true
+  #config.vm.network "forwarded_port", guest: 8443, host: 8003, auto_correct: true
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the

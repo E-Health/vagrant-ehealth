@@ -3,4 +3,8 @@ class r::package {
         ensure => latest,
         require => Exec['apt-get update'],
     }
+    package { 'r-base-dev':
+        ensure => latest,
+        require => Exec['apt-get update'],
+    }
 }
