@@ -10,13 +10,6 @@ class jdk {
         group => "root",
         mode => 755,
     }
-    file { "/usr/share/tomcat6/Oscar12_1.properties":
-        ensure => present,
-        source => "puppet:///modules/jdk/Oscar12_1.properties",
-        owner => "root",
-        group => "root",
-        mode => 777,
-    }
     package { "default-jre-headless": 
         ensure => installed,
     }    
