@@ -55,6 +55,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8000, auto_correct: true
   config.vm.network "forwarded_port", guest: 8080, host: 8001, auto_correct: true
   config.vm.network "forwarded_port", guest: 8787, host: 8002, auto_correct: true
+  config.vm.network "forwarded_port", guest: 8443, host: 8003, auto_correct: true
 
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the

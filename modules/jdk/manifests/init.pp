@@ -13,4 +13,7 @@ class jdk {
     package { "default-jre-headless": 
         ensure => installed,
     }    
+    package { "libmysql-java": 
+        ensure => installed,
+    }    
 }
