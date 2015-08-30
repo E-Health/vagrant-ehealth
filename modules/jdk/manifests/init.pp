@@ -1,7 +1,7 @@
 class jdk {
     package { "jdk":
         ensure => "installed",
-        name => "openjdk-6-jdk",
+        name => "openjdk-7-jdk",
     }
     file { "/etc/profile.d/java_env.sh":
         ensure => present,
