@@ -31,7 +31,7 @@ class mysql {
     refreshonly => true,
     unless => "mysqladmin -uroot -p$password status",
     path => "/bin:/usr/bin",
-    command => "mysql -uroot -p$password oscar_mcmaster < /home/vagrant/OscarON12_1.sql",
+    command => "mysql -uroot -p$password oscar_12_1 < /home/vagrant/OscarON12_1.sql",
   }
 
 }

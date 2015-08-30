@@ -5,20 +5,18 @@ $script = <<SCRIPT
   echo I am starting mysql...
   /etc/init.d/mysql start
 
-  #echo I am getting OSCAR for you...
-  #wget -P -q /home/vagrant/code/ http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb
-
   echo I am installing OSCAR for you...
+  cp /home/vagrant/code/Oscar12_1.properties /usr/share/tomcat6/
   export DEBIAN_FRONTEND=noninteractive
   #URL='http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
 URL='http://downloads.sourceforge.net/project/oscarmcmaster/Oscar%20Debian%2BUbuntu%20deb%20Package/oscar_emr12.1.2-70general538.deb'; FILE=`oscar.deb`; wget "$URL" -qO $FILE && dpkg -i $FILE
 
   echo I am installing R Studio server for you...
-  URL='https://download2.rstudio.org/rstudio-server-0.99.473-i386.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
+  #URL='https://download2.rstudio.org/rstudio-server-0.99.473-i386.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
 
   echo I am installing R packages for you...
   #/home/vagrant/install.r JGR Deducer DeducerExtras nortest lawstat
-  /home/vagrant/install.r nortest lawstat
+  #/home/vagrant/install.r nortest lawstat
 
 
 SCRIPT
@@ -31,7 +29,9 @@ $r_latest = <<SCRIPT2
   #sudo add-apt-repository ppa:marutter/rdev
   #sudo apt-get -y update
   #sudo apt-get -y upgrade
-  sudo apt-get -y install r-base r-base-dev
+
+  #change this
+  #sudo apt-get -y install r-base r-base-dev
 
 SCRIPT2
 
