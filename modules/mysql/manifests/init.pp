@@ -10,5 +10,6 @@ class mysql {
     unless => "mysqladmin -uroot -p$password status",
     path => "/bin:/usr/bin",
     command => "mysqladmin -uroot password $password",
+    command => "mysqladmin -uroot -p$password create oscar_mcmaster"
   }
 }

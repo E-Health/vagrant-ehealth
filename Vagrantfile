@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
     v.customize [
        "modifyvm", :id,
        "--name", "ehealth",
-       "--memory", "1024"]
+       "--memory", "1536"]
     #v.gui = true
   end
 
