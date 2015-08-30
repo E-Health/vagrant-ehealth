@@ -1,5 +1,6 @@
 class mysql {
-  $password = ""
+  $password = "oscar"
+  $oscar_db = "oscar_12_1"
   package { "mysql-client": ensure => installed }
   package { "mysql-server": ensure => installed }
   package { "libmysqlclient-dev": ensure => installed }
@@ -12,26 +13,24 @@ class mysql {
         mode => 777,
   }
 
-  exec { "Set MySQL server root password":
+  exec { "mysql_root_password":
     subscribe => [ Package["mysql-server"], Package["mysql-client"], Package["libmysqlclient-dev"] ],
     refreshonly => true,
     unless => "mysqladmin -uroot -p$password status",
     path => "/bin:/usr/bin",
     command => "mysqladmin -uroot password $password",
   }
-  exec { "Create OSCAR Database":
-    subscribe => [ Package["mysql-server"], Package["mysql-client"], Package["libmysqlclient-dev"] ],
-    refreshonly => true,
-    unless => "mysqladmin -uroot -p$password status",
-    path => "/bin:/usr/bin",
-    command => "mysqladmin -uroot -p$password create oscar_mcmaster",
-  }
-  exec { "Write OSCAR Data":
-    subscribe => [ Package["mysql-server"], Package["mysql-client"], Package["libmysqlclient-dev"] ],
-    refreshonly => true,
-    unless => "mysqladmin -uroot -p$password status",
-    path => "/bin:/usr/bin",
-    command => "mysql -uroot -p$password oscar_12_1 < /home/vagrant/OscarON12_1.sql",
-  }
 
+  exec { "mysql_create_db":
+    subscribe => Exec['mysql_root_password'],
+    refreshonly => true,
+    path => "/bin:/usr/bin",
+    command => "mysqladmin -uroot -p$password create $oscar_db",
+  }
+  exec { "mysql_write_db":
+    subscribe => Exec['mysql_create_db'],
+    refreshonly => true,
+    path => "/bin:/usr/bin",
+    command => "mysql -uroot -p$password $oscar_db < /home/vagrant/OscarON12_1.sql",
+  }
 }
