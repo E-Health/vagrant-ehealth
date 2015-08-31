@@ -15,7 +15,7 @@ vagrant up
 > It takes approximately 30 minutes to create the machine initially.
 
 ## Access:
-- Access OpenMRS at http://127.0.0.1:8001/openmrs (mysql password: mysql)
+- Access OpenMRS at http://127.0.0.1:8001/openmrs (mysql password: mysql) (login:admin password:Admin123)
 - Access OSCAR at http://127.0.0.1:8001/Oscar10_12 (default login password on screen)
 - Access R Studio Server at http://127.0.0.1:8002/ (login:vagrant password:vagrant)
 
