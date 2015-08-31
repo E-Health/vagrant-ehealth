@@ -1,37 +1,28 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+#Installs OpenMRS and OSCAR (Electronic Medical Records Systems)
+#Installs R Studio Server
+#By Bell Eapen (nuchange.ca)
+
 $script = <<SCRIPT
-  echo I am starting mysql...
+  echo Starting mysql...
   /etc/init.d/mysql start
 
 
-  echo I am installing R Studio server for you...
+  echo Installing R Studio server...
   URL='https://download2.rstudio.org/rstudio-server-0.99.473-i386.deb'; FILE=`mktemp`; wget "$URL" -qO $FILE && dpkg -i $FILE; rm $FILE
 
-  echo I am installing R packages for you...
+  echo Installing R packages...
   #/home/vagrant/install.r JGR Deducer DeducerExtras nortest lawstat
   /home/vagrant/install.r nortest lawstat
 
   #restarting tomcat
+  echo Restarting Tomcat Server...
   /etc/init.d/tomcat6 restart
 
 SCRIPT
 
-$r_latest = <<SCRIPT2
-
-  #echo I am getting latest R for you...
-  #echo "deb http://cran.utstat.utoronto.ca/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list > /dev/null
-  #sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
-  #sudo add-apt-repository ppa:marutter/rdev
-  #sudo apt-get -y update
-  #sudo apt-get -y upgrade
-
-  #change this
-  #sudo apt-get -y install r-base r-base-dev
-
-
-SCRIPT2
 
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
@@ -75,9 +66,7 @@ Vagrant.configure("2") do |config|
     #v.gui = true
   end
 
-  config.vm.provision "shell", inline: $r_latest
-
-
+ 
   config.vm.provision :puppet do |puppet|
     puppet.module_path = "modules"
     puppet.manifests_path = "manifests"

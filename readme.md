@@ -44,6 +44,11 @@ vagrant up
 - [OpenMRS](http://openmrs.org/)
 - [OSCAR](https://oscar-emr.com/)
 
+### Disclaimer
+This is for testing only. Not suitable for production.
+
+### For more information visit [NuChange Blog](http://nuchange.ca)
+
 ### Contribute
 pull-requests welcome
 
