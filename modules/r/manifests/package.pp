@@ -5,6 +5,6 @@ class r::package {
     }
     package { 'r-base-dev':
         ensure => latest,
-        require => Exec['apt-get update'],
+        require => Package['r-base'],
     }
 }

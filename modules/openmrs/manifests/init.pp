@@ -41,10 +41,4 @@ class openmrs {
     group => "tomcat6",
     require => Package["tomcat6"],
   }
-
-  exec { "move_conf_openmrs":
-   
-    path => "/bin:/usr/bin",
-    command => "mv /home/vagrant/code/openmrs.runtime.properties /usr/share/tomcat6/openmrs.runtime.properties",
-  }
 }
