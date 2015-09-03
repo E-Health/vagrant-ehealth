@@ -7,7 +7,7 @@ define download($uri, $timeout = 300) {
 }
 
 class openmrs {
-  $version = '1.9.3'
+  $version = '1.9.8'
   $stage = "/var/tmp/openmrs-${version}.war"
   $target = '/var/lib/tomcat6/webapps/openmrs.war'
 
@@ -17,7 +17,7 @@ class openmrs {
 
   download { $stage:
     uri => "http://downloads.sourceforge.net/project/openmrs/releases/OpenMRS_${version}/openmrs.war",
-    timeout => 900,
+    timeout => 1800,
     require => File["/tmp"],
 
   }
