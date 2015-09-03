@@ -7,7 +7,7 @@ define download($uri, $timeout = 300) {
 }
 
 class openmrs {
-  $version = '1.9.3'
+  $version = '1.9.8'
   $stage = "/var/tmp/openmrs-${version}.war"
   $target = '/var/lib/tomcat6/webapps/openmrs.war'
 
