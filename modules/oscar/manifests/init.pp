@@ -9,6 +9,7 @@ class oscar {
 
   exec { "wget_oscar":
     path => "/bin:/usr/bin",
+    timeout     => 1800,
     command => "wget $uri -qO /home/vagrant/oscar.tar.gz",
   }
 
