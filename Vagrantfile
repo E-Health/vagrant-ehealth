@@ -22,11 +22,8 @@ $script = <<SCRIPT
   /etc/init.d/tomcat6 restart
 
   #Final Messages
-  echo Thanks for installing OpenMRS, OSCAR and R Studio
-  echo Access OpenMRS at http://127.0.0.1:8001/openmrs (mysql password: mysql) (login:admin password:Admin123)
-  echo Access OSCAR at http://127.0.0.1:8001/Oscar10_12 (default login password on screen)
-  echo Access R Studio Server at http://127.0.0.1:8002/ (login:vagrant password:vagrant)
-  echo Please visit http://nuchange.ca for further info!
+  echo Thanks for installing OpenMRS OSCAR and R Studio
+  echo Please visit nuchange.ca for further info.
 
 SCRIPT
 

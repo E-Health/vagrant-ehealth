@@ -17,7 +17,7 @@ class openmrs {
 
   download { $stage:
     uri => "http://downloads.sourceforge.net/project/openmrs/releases/OpenMRS_${version}/openmrs.war",
-    timeout => 900,
+    timeout => 1800,
     require => File["/tmp"],
 
   }
