@@ -5,7 +5,7 @@ Vagrant-ehealth is a vagrant script to install two popular open source EMR syste
 ## How to Use
 - Install [VirtualBox for your OS](https://www.virtualbox.org/)
 - Install [Vagrant for your OS](https://www.vagrantup.com/)
-- Unzip / Clone this repository into a folder 
+- Unzip / Clone this repository into a folder [Use the 'Download Zip' on the right panel]
 - cd to that folder
 
 ```sh
@@ -14,7 +14,7 @@ vagrant up
 
 > It takes approximately 30 minutes to create the machine initially.
 
-## Access:
+## Access in your browser:
 - Access OpenMRS at http://127.0.0.1:8001/openmrs (mysql password: mysql) (login:admin password:Admin123)
 - Access OSCAR at http://127.0.0.1:8001/Oscar10_12 (default login password on screen)
 - Access R Studio Server at http://127.0.0.1:8002/ (login:vagrant password:vagrant)
