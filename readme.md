@@ -49,6 +49,9 @@ This is for testing only. Not suitable for production.
 
 ### For more information visit [NuChange Blog](http://nuchange.ca)
 
+### Contact Us on ##ehealth
+[![Visit our IRC channel](https://kiwiirc.com/buttons/irc.freenode.net/#ehealth.png)](https://kiwiirc.com/client/irc.freenode.net/?nick=nuchange|?##ehealth)
+
 ### Contribute
 pull-requests welcome
 
